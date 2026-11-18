@@ -1,0 +1,871 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>QUICKGAMERZ97 | Official Gaming Website</title>
+
+<meta name="description" content="QUICKGAMERZ97 - Minecraft content creator, gaming videos, adventures and community.">
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+  --green: #55ff68;
+  --dark-green: #173c20;
+  --bg: #070b09;
+  --card: #101a13;
+  --white: #f5fff5;
+  --muted: #a4b5a7;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--white);
+  font-family: 'Poppins', sans-serif;
+  overflow-x: hidden;
+}
+
+a { text-decoration: none; color: inherit; }
+
+button { font-family: inherit; }
+
+/* BACKGROUND */
+
+.background {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  background:
+    radial-gradient(ellipse at 50% 20%, #173d20 0%, transparent 55%),
+    linear-gradient(180deg, #0b130d, #050806);
+}
+
+#particles {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* LOADER */
+
+#loader {
+  position: fixed;
+  inset: 0;
+  background: #060b07;
+  z-index: 9999;
+  display: grid;
+  place-items: center;
+  transition: opacity .5s, visibility .5s;
+}
+
+#loader.hide {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.loader-text {
+  color: var(--green);
+  font: 900 26px 'Orbitron', sans-serif;
+  animation: pulse 1s infinite alternate;
+}
+
+@keyframes pulse {
+  to { text-shadow: 0 0 25px var(--green); }
+}
+
+/* NAVBAR */
+
+header {
+  height: 78px;
+  padding: 0 8%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: rgba(5, 12, 7, .88);
+  backdrop-filter: blur(18px);
+  border-bottom: 1px solid #285331;
+}
+
+.logo {
+  font: 900 21px 'Orbitron', sans-serif;
+  color: var(--green);
+  letter-spacing: 1px;
+}
+
+.logo span { color: white; }
+
+nav {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+nav a {
+  font-size: 13px;
+  font-weight: 600;
+  color: #d3e4d5;
+  transition: .3s;
+}
+
+nav a:hover { color: var(--green); }
+
+.menu-btn {
+  display: none;
+  background: none;
+  border: 0;
+  color: white;
+  font-size: 27px;
+  cursor: pointer;
+}
+
+/* HERO */
+
+.hero {
+  min-height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 70px 20px;
+  position: relative;
+}
+
+.hero-content { max-width: 900px; }
+
+.tag {
+  display: inline-block;
+  color: var(--green);
+  border: 1px solid #367844;
+  background: #14301b;
+  padding: 9px 18px;
+  border-radius: 30px;
+  font-size: 12px;
+  letter-spacing: 2px;
+  margin-bottom: 25px;
+}
+
+.hero h1 {
+  font: 900 clamp(38px, 8vw, 82px) 'Orbitron', sans-serif;
+  line-height: 1.2;
+  background: linear-gradient(90deg, #fff, #65ff78, #19b93d);
+  -webkit-background-clip: text;
+  color: transparent;
+  filter: drop-shadow(0 0 20px #2cff4540);
+}
+
+.hero h2 {
+  margin-top: 18px;
+  font-size: clamp(17px, 3vw, 25px);
+  letter-spacing: 5px;
+}
+
+.hero p {
+  color: var(--muted);
+  max-width: 620px;
+  margin: 20px auto 30px;
+  line-height: 1.8;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 14px 25px;
+  border-radius: 7px;
+  font-weight: 700;
+  font-size: 13px;
+  transition: .3s;
+}
+
+.btn-primary {
+  background: var(--green);
+  color: #071109;
+  box-shadow: 0 0 22px #40ff5540;
+}
+
+.btn-outline {
+  border: 1px solid var(--green);
+  color: var(--green);
+}
+
+.btn:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 25px #55ff6860;
+}
+
+/* COMMON SECTION */
+
+section {
+  padding: 95px 8%;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.section-title small {
+  color: var(--green);
+  letter-spacing: 4px;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.section-title h2 {
+  font: 800 clamp(27px, 5vw, 42px) 'Orbitron', sans-serif;
+  margin-top: 12px;
+}
+
+.section-title h2 span { color: var(--green); }
+
+/* ABOUT */
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 45px;
+  align-items: center;
+}
+
+.profile-box {
+  min-height: 340px;
+  border: 1px solid #31643a;
+  border-radius: 20px;
+  background:
+    radial-gradient(circle, #286137, #102416 65%, #0a100c);
+  display: grid;
+  place-items: center;
+  text-align: center;
+  padding: 30px;
+}
+
+.profile-icon {
+  font-size: 95px;
+  filter: drop-shadow(0 0 25px #55ff68);
+}
+
+.profile-box h3 {
+  font: 800 22px 'Orbitron', sans-serif;
+  color: var(--green);
+}
+
+.about-text h3 {
+  font-size: 27px;
+  margin-bottom: 17px;
+}
+
+.about-text p {
+  color: var(--muted);
+  line-height: 1.9;
+  margin-bottom: 15px;
+}
+
+.about-list {
+  margin-top: 22px;
+  display: grid;
+  gap: 12px;
+}
+
+.about-list div {
+  color: #d9e9db;
+  font-size: 14px;
+}
+
+/* STATS */
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.stat-card {
+  text-align: center;
+  padding: 35px 15px;
+  border: 1px solid #254c2c;
+  border-radius: 13px;
+  background: linear-gradient(145deg, #15271a, #0b110d);
+  transition: .3s;
+}
+
+.stat-card:hover {
+  border-color: var(--green);
+  transform: translateY(-7px);
+}
+
+.stat-card h3 {
+  font: 800 clamp(24px, 4vw, 38px) 'Orbitron', sans-serif;
+  color: var(--green);
+}
+
+.stat-card p {
+  margin-top: 10px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+/* CONTENT */
+
+.content {
+  background: #0b120d;
+}
+
+.content-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+.content-card {
+  border: 1px solid #254c2c;
+  border-radius: 15px;
+  overflow: hidden;
+  background: var(--card);
+  transition: .35s;
+}
+
+.content-card:hover {
+  transform: translateY(-8px);
+  border-color: var(--green);
+  box-shadow: 0 10px 35px #0008;
+}
+
+.content-image {
+  height: 185px;
+  display: grid;
+  place-items: center;
+  font-size: 65px;
+  background: linear-gradient(135deg, #285c32, #101a12);
+}
+
+.content-info { padding: 23px; }
+
+.content-info h3 {
+  color: var(--green);
+  margin-bottom: 10px;
+}
+
+.content-info p {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.7;
+  margin-bottom: 17px;
+}
+
+.content-info a {
+  color: var(--green);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+/* COMMUNITY */
+
+.community {
+  text-align: center;
+}
+
+.community-box {
+  padding: 55px 25px;
+  border: 1px solid #387744;
+  border-radius: 20px;
+  background:
+    radial-gradient(ellipse at center, #1a4625, #0b130d 75%);
+}
+
+.community-box h2 {
+  font: 800 clamp(25px, 5vw, 42px) 'Orbitron', sans-serif;
+}
+
+.community-box p {
+  color: var(--muted);
+  margin: 18px auto 28px;
+}
+
+/* SOCIAL */
+
+.social-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.social-card {
+  padding: 28px 12px;
+  text-align: center;
+  background: #111c14;
+  border: 1px solid #2b5131;
+  border-radius: 12px;
+  transition: .3s;
+}
+
+.social-card:hover {
+  transform: scale(1.04);
+  border-color: var(--green);
+}
+
+.social-card .icon { font-size: 36px; }
+
+.social-card h3 {
+  margin: 12px 0 6px;
+  color: var(--green);
+}
+
+.social-card p {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+/* FOOTER */
+
+footer {
+  border-top: 1px solid #254c2c;
+  background: #080e09;
+  text-align: center;
+  padding: 35px 15px;
+}
+
+footer h3 {
+  font: 800 20px 'Orbitron', sans-serif;
+  color: var(--green);
+}
+
+footer p {
+  color: var(--muted);
+  font-size: 12px;
+  margin-top: 12px;
+}
+
+/* REVEAL ANIMATION */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(35px);
+  transition: .8s ease;
+}
+
+.reveal.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* MOBILE */
+
+@media(max-width: 800px) {
+  header { padding: 0 5%; }
+  .menu-btn { display: block; }
+
+  nav {
+    position: absolute;
+    top: 78px;
+    left: 0;
+    right: 0;
+    background: #0b150d;
+    padding: 25px;
+    display: none;
+    flex-direction: column;
+    border-bottom: 1px solid #285331;
+  }
+
+  nav.open { display: flex; }
+
+  .about-grid { grid-template-columns: 1fr; }
+  .content-grid { grid-template-columns: 1fr; }
+  .stats { grid-template-columns: 1fr; }
+  .social-grid { grid-template-columns: 1fr; }
+  section { padding: 70px 6%; }
+}
+</style>
+</head>
+
+<body>
+
+<div id="loader">
+  <div class="loader-text">QUICKGAMERZ97</div>
+</div>
+
+<div class="background"></div>
+<canvas id="particles"></canvas>
+
+<!-- NAVIGATION -->
+
+<header>
+  <a href="#home" class="logo">QUICK<span>GAMERZ97</span></a>
+
+  <button class="menu-btn" id="menuBtn"
+    aria-label="Toggle navigation">☰</button>
+
+  <nav id="nav">
+    <a href="#home">HOME</a>
+    <a href="#about">ABOUT</a>
+    <a href="#stats">STATS</a>
+    <a href="#videos">CONTENT</a>
+    <a href="#community">COMMUNITY</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+
+<section class="hero" id="home">
+  <div class="hero-content reveal">
+
+    <div class="tag">✦ OFFICIAL CREATOR WEBSITE ✦</div>
+
+    <h1>QUICKGAMERZ97</h1>
+
+    <h2>MINECRAFT CONTENT CREATOR</h2>
+
+    <p>
+      Welcome to my gaming universe!
+      Exploring Minecraft, creating epic adventures
+      and entertaining the gaming community.
+      The journey has just begun!
+    </p>
+
+    <div class="buttons">
+      <a class="btn btn-primary"
+        href="https://youtube.com/@quickgamerz9.7"
+        target="_blank" rel="noopener">
+        ▶️ SUBSCRIBE NOW
+      </a>
+
+      <a class="btn btn-outline" href="#videos">
+        EXPLORE MY CONTENT
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ABOUT -->
+
+<section id="about">
+  <div class="section-title reveal">
+    <small>GET TO KNOW ME</small>
+    <h2>ABOUT <span>CREATOR</span></h2>
+  </div>
+
+  <div class="about-grid reveal">
+
+    <div class="profile-box">
+      <div>
+        <div class="profile-icon">⛏️</div>
+        <h3>QUICKGAMERZ97</h3>
+        <p>Minecraft Creator</p>
+      </div>
+    </div>
+
+    <div class="about-text">
+      <h3>Hey, Gamers! 👋</h3>
+
+      <p>
+        I am QUICKGAMERZ97, a Minecraft content creator.
+        I create gaming content and share my passion
+        for Minecraft with an amazing community.
+      </p>
+
+      <p>
+        From epic adventures to creative gameplay,
+        my goal is to entertain, inspire and make
+        every gaming moment memorable.
+      </p>
+
+      <div class="about-list">
+        <div>⛏️ Minecraft Gaming</div>
+        <div>🎮 Gaming Content Creation</div>
+        <div>🔥 Epic Gaming Adventures</div>
+        <div>🌍 Building a Gaming Community</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- STATS -->
+
+<section id="stats">
+  <div class="section-title reveal">
+    <small>MY ACHIEVEMENTS</small>
+    <h2>CHANNEL <span>STATS</span></h2>
+  </div>
+
+  <div class="stats reveal">
+
+    <div class="stat-card">
+      <h3 class="counter" data-target="8500" data-suffix="+">0</h3>
+      <p>YOUTUBE SUBSCRIBERS</p>
+    </div>
+
+    <div class="stat-card">
+      <h3 class="counter" data-target="2000000" data-suffix="+">0</h3>
+      <p>CONTENT REACH</p>
+    </div>
+
+    <div class="stat-card">
+      <h3 class="counter" data-target="1825468">0</h3>
+      <p>TOTAL CHANNEL VIEWS</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- CONTENT -->
+
+<section class="content" id="videos">
+
+  <div class="section-title reveal">
+    <small>ENTERTAINMENT ZONE</small>
+    <h2>MY <span>CONTENT</span></h2>
+  </div>
+
+  <div class="content-grid reveal">
+
+    <div class="content-card">
+      <div class="content-image">⛏️</div>
+      <div class="content-info">
+        <h3>Minecraft Adventures</h3>
+        <p>Explore the exciting world of Minecraft gameplay.</p>
+        <a href="https://youtube.com/@quickgamerz9.7"
+           target="_blank" rel="noopener">WATCH ON YOUTUBE ↗️</a>
+      </div>
+    </div>
+
+    <div class="content-card">
+      <div class="content-image">🏰</div>
+      <div class="content-info">
+        <h3>Creative Builds</h3>
+        <p>Discover creative ideas and amazing Minecraft worlds.</p>
+        <a href="https://youtube.com/@quickgamerz9.7"
+           target="_blank" rel="noopener">EXPLORE CHANNEL ↗️</a>
+      </div>
+    </div>
+
+    <div class="content-card">
+      <div class="content-image">⚔️</div>
+      <div class="content-info">
+        <h3>Gaming Challenges</h3>
+        <p>Join the fun with exciting gaming challenges.</p>
+        <a href="https://youtube.com/@quickgamerz9.7"
+           target="_blank" rel="noopener">WATCH VIDEOS ↗️</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- COMMUNITY -->
+
+<section class="community" id="community">
+
+  <div class="community-box reveal">
+    <h2>JOIN THE <span style="color:#55ff68">COMMUNITY</span></h2>
+
+    <p>
+      Be a part of QUICKGAMERZ97.
+      Subscribe, follow and join our gaming community!
+    </p>
+
+    <div class="buttons">
+      <a class="btn btn-primary"
+         href="https://youtube.com/@quickgamerz9.7"
+         target="_blank" rel="noopener">
+        ▶️ YOUTUBE
+      </a>
+
+      <a class="btn btn-outline"
+         href="https://discord.gg/EECnh5tS"
+         target="_blank" rel="noopener">
+        DISCORD SERVER
+      </a>
+    </div>
+  </div>
+
+</section>
+
+<!-- SOCIAL LINKS -->
+
+<section>
+  <div class="section-title reveal">
+    <small>CONNECT WITH ME</small>
+    <h2>FOLLOW <span>ME</span></h2>
+  </div>
+
+  <div class="social-grid reveal">
+
+    <a class="social-card"
+       href="https://youtube.com/@quickgamerz9.7"
+       target="_blank" rel="noopener">
+      <div class="icon">▶️</div>
+      <h3>YouTube</h3>
+      <p>@Quickgamerz9.7</p>
+    </a>
+
+    <a class="social-card"
+       href="https://www.instagram.com/officerquickgamerz97/"
+       target="_blank" rel="noopener">
+      <div class="icon">📸</div>
+      <h3>Instagram</h3>
+      <p>@officerquickgamerz97</p>
+    </a>
+
+    <a class="social-card"
+       href="https://discord.gg/EECnh5tS"
+       target="_blank" rel="noopener">
+      <div class="icon">💬</div>
+      <h3>Discord</h3>
+      <p>Join the community</p>
+    </a>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+  <h3>QUICKGAMERZ97</h3>
+  <p>MINECRAFT CONTENT CREATOR</p>
+  <p>Joined YouTube: October 10, 2024</p>
+  <p>© <span id="year"></span> QUICKGAMERZ97. All Rights Reserved.</p>
+  <p>Made for the love of gaming 💚</p>
+</footer>
+
+<script>
+
+// LOADER
+window.addEventListener("load", () => {
+  setTimeout(() => {
+    document.getElementById("loader").classList.add("hide");
+  }, 700);
+});
+
+// MOBILE MENU
+const menuBtn = document.getElementById("menuBtn");
+const nav = document.getElementById("nav");
+
+menuBtn.addEventListener("click", () => {
+  nav.classList.toggle("open");
+  menuBtn.textContent =
+    nav.classList.contains("open") ? "✕" : "☰";
+});
+
+nav.querySelectorAll("a").forEach(link => {
+  link.addEventListener("click", () => {
+    nav.classList.remove("open");
+    menuBtn.textContent = "☰";
+  });
+});
+
+// SCROLL REVEAL
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("show");
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.12 });
+
+document.querySelectorAll(".reveal").forEach(el => {
+  observer.observe(el);
+});
+
+// NUMBER COUNTERS
+const counterObserver = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (!entry.isIntersecting) return;
+
+    const counter = entry.target;
+    const target = Number(counter.dataset.target);
+    const suffix = counter.dataset.suffix || "";
+    const duration = 1800;
+    const start = performance.now();
+
+    function update(now) {
+      const progress = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      const value = Math.floor(target * eased);
+
+      counter.textContent =
+        value.toLocaleString("en-IN") + suffix;
+
+      if (progress < 1) {
+        requestAnimationFrame(update);
+      }
+    }
+
+    requestAnimationFrame(update);
+    counterObserver.unobserve(counter);
+  });
+}, { threshold: 0.5 });
+
+document.querySelectorAll(".counter").forEach(el => {
+  counterObserver.observe(el);
+});
+
+// CURRENT YEAR
+document.getElementById("year").textContent =
+  new Date().getFullYear();
+
+// BACKGROUND PARTICLES
+const canvas = document.getElementById("particles");
+const ctx = canvas.getContext("2d");
+
+let particles = [];
+
+function resizeCanvas() {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+
+  particles = Array.from({length: 55}, () => ({
+    x: Math.random() * canvas.width,
+    y: Math.random() * canvas.height,
+    size: Math.random() * 2 + 1,
+    speed: Math.random() * 0.5 + 0.15
+  }));
+}
+
+function animateParticles() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  particles.forEach(p => {
+    ctx.fillStyle = "rgba(85,255,104,0.55)";
+    ctx.fillRect(p.x, p.y, p.size, p.size);
+
+    p.y -= p.speed;
+
+    if (p.y < 0) {
+      p.y = canvas.height;
+      p.x = Math.random() * canvas.width;
+    }
+  });
+
+  requestAnimationFrame(animateParticles);
+}
+
+resizeCanvas();
+animateParticles();
+
+window.addEventListener("resize", resizeCanvas);
+
+</script>
+
+</body>
+</html>
